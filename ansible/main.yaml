@@ -29,7 +29,7 @@
 
   - name: check aws cli
     stat:
-      path: /usr/bin/aws
+      path: /usr/local/bin/aws
     register: out
 
   - name: install aws cli2
