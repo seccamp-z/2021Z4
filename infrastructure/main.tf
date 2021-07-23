@@ -20,7 +20,7 @@ resource "aws_key_pair" "SlankdevSshKey1" {
 resource "aws_vpc" "slankdev-test-vpc-1" {
   cidr_block           = "10.255.0.0/16"
   instance_tenancy     = "default"
-  enable_dns_support   = "false"
+  enable_dns_support   = "true"
   enable_dns_hostnames = "false"
 
   tags = {
