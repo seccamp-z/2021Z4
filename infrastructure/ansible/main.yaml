@@ -1,24 +1,4 @@
 ---
-- hosts: localhost
-  become: yes
-  tasks:
-  - name: check aws cli
-    stat:
-      path: /usr/local/bin/aws
-    register: out
-
-  - name: install aws cli2
-    when: out.stat.exists == false
-    block:
-    - name: install aws cli2
-      unarchive:
-        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-        dest: /tmp
-        remote_src: yes
-    - name: install aws cli2
-      command:
-        cmd: /tmp/aws/install
-
 - hosts: student
   become: yes
   tasks:
