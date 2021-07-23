@@ -1,0 +1,46 @@
+---
+- hosts: student
+  become: yes
+  tasks:
+  - name: install packages
+    apt:
+      name:
+      - jq
+      - docker.io
+      - silversearcher-ag
+      - unzip
+      state: present
+      update_cache: yes
+
+  - name: install tinet
+    get_url:
+      url: https://github.com/tinynetwork/tinet/releases/download/v0.0.2/tinet
+      dest: /usr/bin/tinet
+      mode: 0755
+
+  - name: ensure directry
+    file:
+      path: /usr/share
+      state: directory
+
+  - name: close tinet example directory
+    git:
+      repo: https://github.com/tinynetwork/tinet
+      dest: /usr/share/tinet
+
+  - name: check aws cli
+    stat:
+      path: /usr/local/bin/aws
+    register: out
+
+  - name: install aws cli2
+    when: out.stat.exists == false
+    block:
+    - name: install aws cli2
+      unarchive:
+        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: /tmp
+        remote_src: yes
+    - name: install aws cli2
+      command:
+        cmd: /tmp/aws/install
