@@ -5,6 +5,7 @@
   - name: install packages
     apt:
       name:
+      - jq
       - docker.io
       - silversearcher-ag
       - unzip
