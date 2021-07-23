@@ -18,3 +18,11 @@ pip install pipenv
 pipenv sync
 pipenv run ansible-playbook -i hosts.yaml main.yaml
 ```
+
+```
+$ aws ec2 describe-network-interfaces | jq .NetworkInterfaces[].Association.PublicIp -r
+54.64.182.241
+54.238.97.165
+54.248.155.91
+35.75.183.22
+```
