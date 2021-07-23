@@ -8,7 +8,7 @@ all:
   children:
     student:
       hosts:
-        54.64.182.241:
-        54.238.97.165:
-        54.248.155.91:
-        35.75.183.22:
+        student1: { ansible_host: 54.238.97.165 }
+        student2: { ansible_host: 54.248.155.91 }
+        student3: { ansible_host: 54.64.182.241 }
+        student4: { ansible_host: 35.75.183.22  }
