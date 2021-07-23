@@ -4,8 +4,9 @@
   tasks:
   - name: install docker
     apt:
-      name: docker-ce
+      name: docker.io
       state: present
+      update_cache: yes
 
   - name: install tinet
     get_url:
