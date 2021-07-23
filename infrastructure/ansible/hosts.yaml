@@ -4,11 +4,11 @@ all:
     ansible_ssh_common_args: >
       -o StrictHostKeyChecking=no
       -o UserKnownHostsFile=/dev/null
-    ansible_ssh_private_key_file: /opt/seccamp.pem
+    ansible_ssh_private_key_file: ~/Desktop/seccamp.pem
   children:
     student:
       hosts:
-        student1: { ansible_host: 54.238.97.165 }
-        student2: { ansible_host: 54.248.155.91 }
-        student3: { ansible_host: 54.64.182.241 }
-        student4: { ansible_host: 35.75.183.22  }
+        student1: { ansible_host: 35.76.23.33   }
+        student2: { ansible_host: 18.181.158.4  }
+        student3: { ansible_host: 35.76.53.123  }
+        student4: { ansible_host: 18.179.159.74 }
