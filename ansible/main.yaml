@@ -1,0 +1,24 @@
+---
+- hosts: student
+  become: yes
+  tasks:
+  - name: install docker
+    apt:
+      name: docker-ce
+      state: present
+
+  - name: install tinet
+    get_url:
+      url: https://github.com/tinynetwork/tinet/releases/download/v0.0.2/tinet
+      dest: /usr/bin/tinet
+      mode: 0755
+
+  - name: ensure directry
+    file:
+      path: /usr/share
+      state: directory
+
+  - name: close tinet example directory
+    git:
+      repo: https://github.com/tinynetwork/tinet
+      dest: /usr/share/tinet
