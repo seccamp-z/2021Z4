@@ -4,6 +4,10 @@ variable "ImagesUbuntu2004LTS" {
   }
 }
 
+variable "student_count" {
+  default = 4
+}
+
 provider "aws" {
   region = "ap-northeast-1"
 }
@@ -16,7 +20,7 @@ resource "aws_key_pair" "SlankdevSshKey1" {
 resource "aws_vpc" "slankdev-test-vpc-1" {
   cidr_block           = "10.255.0.0/16"
   instance_tenancy     = "default"
-  enable_dns_support   = "true"
+  enable_dns_support   = "false"
   enable_dns_hostnames = "false"
 
   tags = {
@@ -36,6 +40,7 @@ resource "aws_subnet" "slankdev-test-vpc-1-subnet-1" {
   vpc_id            = "${aws_vpc.slankdev-test-vpc-1.id}"
   cidr_block        = "10.255.1.0/24"
   availability_zone = "ap-northeast-1a"
+  map_public_ip_on_launch = "false"
 
   tags = {
     Name = "slankdev-test-vpc-1-subnet-1"
@@ -95,7 +100,7 @@ resource "aws_launch_template" "slankdev_instance_template1" {
   key_name      = "SlankdevSshKey1"
 
   network_interfaces {
-    associate_public_ip_address = true
+    associate_public_ip_address = "false"
     subnet_id = "${aws_subnet.slankdev-test-vpc-1-subnet-1.id}"
     security_groups = [
       "${aws_security_group.slankdev-sg-1.id}"
@@ -103,15 +108,18 @@ resource "aws_launch_template" "slankdev_instance_template1" {
   }
 }
 
-resource "aws_instance" "slankdev-instance-1" {
-  launch_template {
-    id = "${aws_launch_template.slankdev_instance_template1.id}"
-  }
-  tags = {
-    Name = "ss-test"
-  }
+resource "aws_instance" "slankdev_instance_student" {
+  count = "${var.student_count}"
+  launch_template { id = "${aws_launch_template.slankdev_instance_template1.id}" }
+  tags = { Name = "${format("student%02d", count.index + 1)}" }
 }
 
-output "test" {
-  value = "${aws_instance.slankdev-instance-1.public_ip}"
+resource "aws_eip" "slankdev_instance_student" {
+  count = "${var.student_count}"
+  instance = "${element(aws_instance.slankdev_instance_student.*.id, count.index)}"
+  vpc      = true
+}
+
+output "student-servers" {
+  value = "${aws_instance.slankdev_instance_student.*.public_ip}"
 }
