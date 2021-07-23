@@ -2,9 +2,12 @@
 - hosts: student
   become: yes
   tasks:
-  - name: install docker
+  - name: install packages
     apt:
-      name: docker.io
+      name:
+      - docker.io
+      - silversearcher-ag
+      - unzip
       state: present
       update_cache: yes
 
@@ -23,3 +26,20 @@
     git:
       repo: https://github.com/tinynetwork/tinet
       dest: /usr/share/tinet
+
+  - name: check aws cli
+    stat:
+      path: /usr/bin/aws
+    register: out
+
+  - name: install aws cli2
+    when: out.stat.exists == false
+    block:
+    - name: install aws cli2
+      unarchive:
+        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: /tmp
+        remote_src: yes
+    - name: install aws cli2
+      command:
+        cmd: /tmp/aws/install
