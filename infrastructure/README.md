@@ -2,11 +2,29 @@
 
 Terraform Manifest for seccamp2021-z4 student environment
 
-## Specification
+## How to access server
+
+```
+ssh -o ProxyCommand='ssh -i ~/.ssh/hoge.pem -W %h:%p ec2-user@x.x.x.x' ubuntu@10.1.0.a
+```
+
+## Design Specification
 
 - versions:
   - terraform v1.0.3
   - aws cli v2
+
+```
++----+
++----+
+```
+
+| server-name | server-ip | student-name |
+| ----------- | --------- | ------------ |
+| student1    | 10.1.0.a  | xxx          |
+| student2    | 10.1.0.a  | xxx          |
+| student3    | 10.1.0.a  | xxx          |
+| student4    | 10.1.0.a  | xxx          |
 
 ## Setup
 (1) install terraform cli
