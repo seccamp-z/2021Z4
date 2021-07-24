@@ -16,10 +16,10 @@
 - 課題: TiNETを使ってtopo2のR1,R2でFRRoutingを動かしてください.
   - spec.yamlは以下を利用してください.
   - FRRのvtyにはいって何かしらコマンドを実行してみましょう.
-	  - `show interface`
-		- `show running-config`
-		- `?`と`<tab>`をなんとなく理解しましょう.
-		  - 参考: https://www.infraexpert.com/study/ciscoios2.html
+    - `show interface`
+    - `show running-config`
+    - `?`と`<tab>`をなんとなく理解しましょう.
+      - 参考: https://www.infraexpert.com/study/ciscoios2.html
 
 ```yaml
 nodes:
@@ -58,13 +58,13 @@ node_configs:
   - cmd: ip addr add 10.255.1.1/24 dev net0
   - cmd: ip addr add 10.1.0.1/24 dev net1
   - cmd: ip addr add 10.2.0.1/24 dev net2
-	- cmd: /usr/lib/frr/frr start
+  - cmd: /usr/lib/frr/frr start
 - name: R2
   cmds:
   - cmd: ip addr add 10.255.1.2/24 dev net0
   - cmd: ip addr add 10.3.0.1/24 dev net1
   - cmd: ip addr add 10.4.0.1/24 dev net2
-	- cmd: /usr/lib/frr/frr start
+  - cmd: /usr/lib/frr/frr start
 - name: C1
   cmds:
   - cmd: ip addr add 10.1.0.2/24 dev net0
@@ -87,9 +87,9 @@ node_configs:
 
 - 課題: 上記に加えR1,R2でそれぞれBGP peerを確立してください.
   - bgp peer stateがestablishedになっていることを確認してください.
-	- ASの設定:
-	  - R1 -> AS1
-		- R2 -> AS2
+  - ASの設定:
+    - R1 -> AS1
+    - R2 -> AS2
 
 ヒント1: FRR config
 ```
