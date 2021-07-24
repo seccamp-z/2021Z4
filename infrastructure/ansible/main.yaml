@@ -2,6 +2,11 @@
 - hosts: student
   become: yes
   tasks:
+
+  - name: update hostname
+    hostname:
+      name: "{{ hostname }}"
+
   - name: install packages
     apt:
       name:
