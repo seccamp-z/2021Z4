@@ -134,6 +134,21 @@ Displayed  2 routes and 2 total paths
 ヒント3: 余裕があったら, `network 10.1.0.0/24`
 でなく `redistribute connected` でやってみよう
 
-## (3) aa
+## (3) Capture BGP Packets
 
-aa
+- 課題: 上記の流れの一部始終のパケットをtcpdumpでcaptureしてwiresharkで解析してください
+  - R1で `tcpdump -nni net0 -w /tmp/in.pcap` を実施すること
+  - BGPの設定を開始するまえから, pingが届くまでのすべてのパケットをキャプチャすること
+  - pcapは作業repoにpushして講師に共有してください.
+
+## (4) Analyze BGP Packets
+
+- 課題: 上記のpcapをwiresharkで開いてBGP packetを見てみよう
+  - OPEN,UPDATEメッセージでそれぞれなにが送られているかを
+    作業repoにメモして共有してください.
+  - 同時にBGPメッセージに関してググって勉強しましょう.
+  - 共有後はみんなでディスカッションでもしながら理解を深めましょう.
+
+ヒント1: wireshark filter tip
+- `tcp.port == 179` と `bgp` の違いはなんですか?
+- `bgp.type == 2` ではなにが filterされますか?
