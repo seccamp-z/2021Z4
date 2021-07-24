@@ -117,6 +117,23 @@ router bgp 1
 
 ヒント2: 途中までうまくいくとR2ではこう見えるはずです.
 ```
+R2# sh bgp ipv4 unicast
+BGP table version is 2, local router ID is 10.255.1.2, vrf id 0
+Status codes:  s suppressed, d damped, h history, * valid, > best, = multipath,
+               i internal, r RIB-failure, S Stale, R Removed
+Nexthop codes: @NNN nexthop's vrf id, < announce-nh-self
+Origin codes:  i - IGP, e - EGP, ? - incomplete
 
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 10.1.0.0/24      10.255.1.1               0             0 1 i
+*> 10.3.0.0/24      0.0.0.0                  0         32768 i
+
+Displayed  2 routes and 2 total paths
 ```
 
+ヒント3: 余裕があったら, `network 10.1.0.0/24`
+でなく `redistribute connected` でやってみよう
+
+## (3) aa
+
+aa
