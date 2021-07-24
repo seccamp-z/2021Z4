@@ -2,6 +2,11 @@
 - hosts: student
   become: yes
   tasks:
+
+  - name: update hostname
+    hostname:
+      name: "{{ hostname }}"
+
   - name: install packages
     apt:
       name:
@@ -11,6 +16,12 @@
       - unzip
       state: present
       update_cache: yes
+
+  - name: ubuntu user in docker grooup
+    user:
+      name: ubuntu
+      append: yes
+      groups: docker
 
   - name: install tinet
     get_url:

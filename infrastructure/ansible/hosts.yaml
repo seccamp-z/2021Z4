@@ -8,7 +8,18 @@ all:
   children:
     student:
       hosts:
-        student1: { ansible_host: 35.76.23.33   }
-        student2: { ansible_host: 18.181.158.4  }
-        student3: { ansible_host: 35.76.53.123  }
-        student4: { ansible_host: 18.179.159.74 }
+        student01:
+          ansible_host: 35.76.23.33
+          hostname: student01
+        student02:
+          ansible_host: 18.181.158.4
+          hostname: student02
+        student03:
+          ansible_host: 35.76.53.123
+          hostname: student03
+        student04:
+          ansible_host: 18.179.159.74
+          hostname: student04
+        student05:
+          ansible_host: 54.95.33.74
+          hostname: student05

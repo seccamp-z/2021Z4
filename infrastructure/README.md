@@ -37,6 +37,12 @@ Host student04
   User ubuntu
   IdentityFile ~/Desktop/seccamp.pem
   StrictHostKeyChecking no
+
+Host student05
+  HostName 54.95.33.74
+  User ubuntu
+  IdentityFile ~/Desktop/seccamp.pem
+  StrictHostKeyChecking no
 ```
 
 | server-name | student-name |
