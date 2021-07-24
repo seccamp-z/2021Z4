@@ -24,9 +24,14 @@
 - そういった課題を解決してくれる仮想ネットワーク構築ツールとして, TiNET(タイネット)というものがあります.
   - repo: https://github.com/tinynetwork/tinet
 	- 事前課題こ仮想ネットワークは, 以下ような設定ファイルを書くだけで簡単に構築できます.
-	  - 課題: https://github.com/tinynetwork/tinet/blob/master/examples/simple/topo2/spec.yaml
+	  - 課題: https://gist.github.com/slankdev/97f818b267ebec89a6d2a68574124523#%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C-virtual-network-playground-1
 		- tinet: https://github.com/tinynetwork/tinet/blob/master/examples/simple/topo2/spec.yaml
-- 課題: tinetを使って, (1) で構築した仮想ネットワークを作ってみよう
+	- 作業用VMにはあらかじめTiNETのinstallが完了しています.
+- 課題: tinetを使ってみよう(基本)
+	- [これ](https://github.com/tinynetwork/tinet/blob/master/examples/simple/topo2/spec.yaml)
+	  を実行してC1から, C4にpingが届くことを確認してみよう.
+- 課題: tinetを使ってみよう(実践)
+  - (1) で構築した仮想ネットワークを作ってみよう
 	- spec.yaml は自身の作業用repoにpushしてそのリンクを講師に共有してください.
 
 ## (1) 講義の方針
