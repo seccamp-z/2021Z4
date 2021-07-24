@@ -12,7 +12,7 @@
 - loginできることを確認したあとは, slackで講師までmentionしてください
 - 課題: loginできることが確認できたあとは, 作業VM上で事前課題の一つだった
   [これ](https://gist.github.com/slankdev/97f818b267ebec89a6d2a68574124523#%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C-virtual-network-playground-2)
-  を説いてみてください.
+  を解いてみてください.
 	- 構築するためのshell scriptを作業repoにpushし, 講師に共有してください.
 
 ## (2) TiNETの入門
