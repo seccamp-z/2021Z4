@@ -17,6 +17,12 @@
       state: present
       update_cache: yes
 
+  - name: ubuntu user in docker grooup
+    user:
+      name: ubuntu
+      append: yes
+      groups: docker
+
   - name: install tinet
     get_url:
       url: https://github.com/tinynetwork/tinet/releases/download/v0.0.2/tinet
