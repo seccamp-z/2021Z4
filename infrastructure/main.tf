@@ -5,7 +5,7 @@ variable "image_ubuntu_2004lts" {
 }
 
 variable "student_count" {
-  default = 4
+  default = 5
 }
 
 provider "aws" {
