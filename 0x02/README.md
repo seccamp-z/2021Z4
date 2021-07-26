@@ -99,7 +99,7 @@ router bgp 1
 !
 ```
 
-## (2) BGP Route Advertise
+## (3) BGP Route Advertise
 
 - 課題: 上記に加え, C1,C3がpingできるようにR1,R2からそれぞれ経路広報してみましょう.
 
@@ -134,14 +134,14 @@ Displayed  2 routes and 2 total paths
 ヒント3: 余裕があったら, `network 10.1.0.0/24`
 でなく `redistribute connected` でやってみよう
 
-## (3) Capture BGP Packets
+## (4) Capture BGP Packets
 
 - 課題: 上記の流れの一部始終のパケットをtcpdumpでcaptureしてwiresharkで解析してください
   - R1で `tcpdump -nni net0 -w /tmp/in.pcap` を実施すること
   - BGPの設定を開始するまえから, pingが届くまでのすべてのパケットをキャプチャすること
   - pcapは作業repoにpushして講師に共有してください.
 
-## (4) Analyze BGP Packets
+## (5) Analyze BGP Packets
 
 - 課題: 上記のpcapをwiresharkで開いてBGP packetを見てみよう
   - OPEN,UPDATEメッセージでそれぞれなにが送られているかを
